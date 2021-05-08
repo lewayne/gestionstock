@@ -1,0 +1,19 @@
+spring:
+    datasource:
+        url: jdbc:mysql://localhost:3306/gestionstock?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+        username: root
+        password:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+## Specify DBMS
+    jpa:
+        database: MYSQL
+        show-sql: false # lorsqu'on envoi une requête http à mon API, est ce qu'on veut afficher les requêtes sql générées par hibernate ?springboot
+# Hibernate DDL Auto (create, create-drop, update)
+# create-drop-losqu'on arrête l'application alors on supprime la base de données
+# update : audemarrage de l'application hibernate va faire la comparaison entre le model qu'on a en java et la base de données puis il va faire une mise à jour
+    hibernate:
+        ddl-auto: update # Au demarage de l'application ou de notre serveur, est qu'on veut à chaque fois create ou create-drop ou update la base de données ?
+        dialect: org.hibernate.dialect.MySQL5Dialect
+server:
+    port: 8081
+
