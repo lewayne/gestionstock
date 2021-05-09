@@ -1,14 +1,14 @@
 package com.lewayne.gestiondestock.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.List;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -38,6 +38,10 @@ public class Utilisateur extends AbstractEntity{
     private String photo;
 
     @ManyToOne()
-    @JoinColumn(name = "entreprise")
+    @JoinColumn(name = "identreprise")
     private Entreprise entreprise;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "utilisateur")
+    @JsonIgnore
+    private List<Roles> roles;
 }

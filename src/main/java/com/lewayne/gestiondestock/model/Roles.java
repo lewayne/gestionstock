@@ -1,15 +1,11 @@
 package com.lewayne.gestiondestock.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -19,4 +15,9 @@ public class Roles extends AbstractEntity{
 
     @Column(name = "rolename")
     private String roleName;
+
+    @ManyToOne()
+    @JoinColumn(name = "idutilisateur")
+    private Utilisateur utilisateur;
+
 }

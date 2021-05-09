@@ -1,6 +1,7 @@
 package com.lewayne.gestiondestock.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -12,6 +13,7 @@ import java.time.Instant;
 //import java.util.Date;
 
 @Data  //Lombok : pour gèrer les logs, les getters et les setters
+@Builder
 @MappedSuperclass // Classe Abstraite: Toutes les classes vont hériter de cette classe
 @EntityListeners(AuditingEntityListener.class) // fourni par spring
         // cet annotation va automatiquement écouter la classe AbstractEntity
@@ -24,7 +26,7 @@ public class AbstractEntity implements Serializable {
     private Integer Id;
 
     @CreatedDate //dire à Hibernate que c'est une date de création
-    @Column(name = "creationDate, nullable = false")  // donner un nom à cette date, et dire aussi qu'elle ne doit pas être null
+    @Column(name = "creationDate", nullable = false)  // donner un nom à cette date, et dire aussi qu'elle ne doit pas être null
     @JsonIgnore // On n'a pas besoin de cet attribut quand t'invoque notre API. ce sont des propriètés techniques
     private Instant creationDate;
 

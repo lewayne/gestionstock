@@ -1,15 +1,13 @@
 package com.lewayne.gestiondestock.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -41,7 +39,7 @@ public class Article extends  AbstractEntity{
     @ManyToOne()
     @JoinColumn(name = "idcategory")
     private Categorie category;
-    /**
+    /**category
      * @JoinColumn(name = "idcategory")   : Permet de spécifier la colonne que nous utiliserons pour rejoindre une association d'entitéou une collection d’éléments.
      *
      * l'entité Article aura une colonne clé étrangère "idcategory" se référant à l'id d'attribut principal de notre entité Categorie.

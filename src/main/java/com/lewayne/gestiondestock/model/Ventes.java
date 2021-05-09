@@ -1,9 +1,6 @@
 package com.lewayne.gestiondestock.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +10,7 @@ import java.time.Instant;
 import java.util.List;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -32,7 +30,6 @@ public class Ventes extends AbstractEntity{
     @Column(name = "identreprise")
     private Integer idEntreprise;
 
-    @OneToMany(mappedBy = "ventes")
+    @OneToMany(mappedBy = "vente")
     private List<LigneVente> ligneVentes;
-
 }

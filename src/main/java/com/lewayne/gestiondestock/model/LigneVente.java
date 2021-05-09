@@ -1,14 +1,12 @@
 package com.lewayne.gestiondestock.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -27,7 +25,7 @@ public class LigneVente extends AbstractEntity{
 
     @ManyToOne()
     @JoinColumn(name = "idVente")
-    private Ventes ventes;
+    private Ventes vente;
 
 
     @ManyToOne()

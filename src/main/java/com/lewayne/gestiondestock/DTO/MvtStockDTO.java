@@ -1,32 +1,24 @@
-package com.lewayne.gestiondestock.model;
+package com.lewayne.gestiondestock.DTO;
 
-import lombok.*;
+import com.lewayne.gestiondestock.model.TypeMvtStock;
+import lombok.Builder;
+import lombok.Data;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.Instant;
 
-@Data
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
-@Entity
-@Table(name="mvtStock")
-public class MvtStock extends AbstractEntity{
+@Data
+public class MvtStockDTO {
+    private Integer id;
 
-    @Column(name = "datemvt")
     private Instant dateMvt;
 
-    @Column(name = "quantite")
     private BigDecimal quantite;
 
-    @Column(name = "typemvtstock")
     private TypeMvtStock typeMvtStock;
 
-    @ManyToOne
-    @JoinColumn(name = "idarticle")
-    private Article article;
+    private ArticleDTO article;
 
     /*@Column(name = "typemvt")
     @Enumerated(EnumType.STRING)
@@ -36,7 +28,6 @@ public class MvtStock extends AbstractEntity{
     @Enumerated(EnumType.STRING)
     private SourceMvtStk sourceMvt;*/
 
-    @Column(name = "identreprise")
     private Integer idEntreprise;
 
     /*@ManyToOne()
