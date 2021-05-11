@@ -6,12 +6,11 @@ import javax.persistence.*;
 import java.util.List;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name="categorie")
+@Table(name = "categorie")
 public class Categorie extends AbstractEntity{
     @Column(name = "code")
     private String code;
