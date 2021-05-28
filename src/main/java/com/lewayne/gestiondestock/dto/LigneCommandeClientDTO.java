@@ -15,7 +15,7 @@ public class LigneCommandeClientDTO {
 
     private BigDecimal prixUnitaire;
 
-    private Integer idEntreprise;
+    //private Integer idEntreprise;
 
     private CommandeClientDTO commandeClient;
 
@@ -30,7 +30,8 @@ public class LigneCommandeClientDTO {
                 .article(ArticleDTO.fromEntity(ligneCommandeClient.getArticle()))
                 .quantite(ligneCommandeClient.getQuantite())
                 .prixUnitaire(ligneCommandeClient.getPrixUnitaire())
-                .idEntreprise(ligneCommandeClient.getIdEntreprise())
+                //.idEntreprise(ligneCommandeClient.getIdEntreprise())
+                // Pas de mapping du client
                 .build();
     }
 
@@ -44,7 +45,7 @@ public class LigneCommandeClientDTO {
         ligneCommandeClient.setArticle(ArticleDTO.toEntity(dto.getArticle()));
         ligneCommandeClient.setPrixUnitaire(dto.getPrixUnitaire());
         ligneCommandeClient.setQuantite(dto.getQuantite());
-        ligneCommandeClient.setIdEntreprise(dto.getIdEntreprise());
+        //ligneCommandeClient.setIdEntreprise(dto.getIdEntreprise());
         return ligneCommandeClient;
     }
 

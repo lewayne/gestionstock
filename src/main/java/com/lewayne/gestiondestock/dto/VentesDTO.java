@@ -32,6 +32,7 @@ public class VentesDTO {
                 .code(vente.getCode())
                 .commentaire(vente.getCommentaire())
                 .idEntreprise(vente.getIdEntreprise())
+                //.ligneVentes(vente.getLigneVentes()) on ne map pas ici parceque si on besoin de checher les ventes alors on va faire un appel separé
                 .build();
     }
 

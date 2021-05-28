@@ -6,6 +6,8 @@ import org.springframework.util.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+
+//Permet de valider une entité selon une certaine logique
 public class AdressseValidator {
     public static List<String> validate(AdresseDTO adresseDto) {
         List<String> errors = new ArrayList<>();

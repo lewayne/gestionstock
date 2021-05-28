@@ -1,5 +1,6 @@
 package com.lewayne.gestiondestock.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lewayne.gestiondestock.model.CommandeClient;
 import lombok.Builder;
 import lombok.Data;
@@ -24,6 +25,7 @@ public class CommandeClientDTO {
 
     private ClientDTO client;
 
+//@JsonIgnore
     private List<LigneCommandeClientDTO> ligneCommandeClients;
 
     public static CommandeClientDTO fromEntity(CommandeClient commandeClient) {
@@ -35,8 +37,7 @@ public class CommandeClientDTO {
                 .code(commandeClient.getCode())
                 .dateCommande(commandeClient.getDateCommande())
                 //.etatCommande(commandeClient.getEtatCommande())
-
-                .client(ClientDTO.fromEntity(commandeClient.getClient()))
+                //.client(ClientDTO.fromEntity(commandeClient.getClient()))
                 .idEntreprise(commandeClient.getIdEntreprise())
                 .build();
 
@@ -52,6 +53,7 @@ public class CommandeClientDTO {
         commandeClient.setCode(dto.getCode());
         commandeClient.setClient(ClientDTO.toEntity(dto.getClient()));
         commandeClient.setDateCommande(dto.getDateCommande());
+        //Pas de mapping de ligneCommandeClient
 
         //commandeClient.setEtatCommande(dto.getEtatCommande());
         commandeClient.setIdEntreprise(dto.getIdEntreprise());

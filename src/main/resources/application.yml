@@ -11,9 +11,19 @@ spring:
 # Hibernate DDL Auto (create, create-drop, update)
 # create-drop-losqu'on arrête l'application alors on supprime la base de données
 # update : audemarrage de l'application hibernate va faire la comparaison entre le model qu'on a en java et la base de données puis il va faire une mise à jour
+        properties:
+            hibernate:
+                ejb:
+                    interceptor: com.lewayne.gestiondestock.interceptor.Interceptor
         hibernate:
             ddl-auto: update # Au demarage de l'application ou de notre serveur, est qu'on veut à chaque fois create ou create-drop ou update la base de données ?
             dialect: org.hibernate.dialect.MySQL5Dialect
 server:
     port: 8081
+
+flickr:
+    apiKey: 62442d5ef028af42871fc3b9366b103b
+    apiSecret: b140061394b0f8aa
+    appKey: 72157719189650818-65aac7035be9c1ff
+    appSecret: 56527f4c0260b69b
 

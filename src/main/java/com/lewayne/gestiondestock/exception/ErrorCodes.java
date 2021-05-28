@@ -1,5 +1,7 @@
 package com.lewayne.gestiondestock.exception;
 
+// c'est une façon de faire des enum, ici on crée juste les codes d'érreurs
+// Comment utiliser cet ENUM ???
 public enum ErrorCodes {
     ARTICLE_NOT_FOUND(1000),
     ARTICLE_NOT_VALID(1001),

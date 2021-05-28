@@ -29,13 +29,23 @@ public class AbstractEntity implements Serializable {
     @GeneratedValue //avec auto on délèque à Hibernate la stratégie de création ou de génération des ID
     private Integer id;
 
-    @CreatedDate //dire à Hibernate que c'est une date de création
-    @Column(name = "creationDate", nullable = false)  // donner un nom à cette date, et dire aussi qu'elle ne doit pas être null
-    @JsonIgnore // On n'a pas besoin de cet attribut quand t'invoque notre API. ce sont des propriètés techniques
+    //@CreatedDate //dire à Hibernate que c'est une date de création
+    @Column(name = "creationDate", nullable = false, updatable = false)  //, nullable = false donner un nom à cette date, et dire aussi qu'elle ne doit pas être null
+    //@JsonIgnore // On n'a pas besoin de cet attribut quand t'invoque notre API. ce sont des propriètés techniques
     private Instant creationDate;
 
-    @LastModifiedDate
+    //@LastModifiedDate
     @Column(name = "LastModifiedDate")
-    @JsonIgnore
     private Instant lastUpdateDate;
+
+
+    @PrePersist
+    void prePersist(){
+        creationDate = Instant.now();
+    }
+
+    @PreUpdate
+    void preUpdate(){
+        lastUpdateDate = Instant.now();
+    }
 }

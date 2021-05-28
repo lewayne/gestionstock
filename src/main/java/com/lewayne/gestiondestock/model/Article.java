@@ -32,6 +32,9 @@ public class Article extends  AbstractEntity{
     @Column(name = "photo")
     private String photo;
 
+
+    // Attribut Techinique qui permet de simplifier l'implementation technique (facilite la recherche des données)
+    //mais en terme de conception c'est pas 100
     @Column(name = "identreprise")
     private Integer idEntreprise;
 

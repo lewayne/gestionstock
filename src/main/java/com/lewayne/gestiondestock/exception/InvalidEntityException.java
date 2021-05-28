@@ -4,14 +4,19 @@ import lombok.Getter;
 
 import java.util.List;
 
-// Exeception levé si on essaye d'enregistrer quelque chose dans la base de données ou
+//Exception personnalisée : Permet d'implementer ou bien lorsqu'on renvoi quelque chose qui ne va pas côté API ça va simplifier ou clarifier
+// c'est quoi exacetement le problème
+
+
+// cet exeception est levé si on essaye d'enregistrer quelque chose dans la base de données
+// et lorqu'on passe par la validation cet entité (ou exception ????) n'est pas valide
 public class InvalidEntityException extends RuntimeException {
 
     @Getter
-    private ErrorCodes errorCode;
+    private ErrorCodes errorCode;  // enum
 
     @Getter
-    private List<String> errors;
+    private List<String> errors;  // liste d'érreurs renvoyée par les validateurs
 
     public InvalidEntityException(String message) {
         super(message);
